@@ -23,8 +23,12 @@ class TabThree(wx.Panel):
 class TabFour(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent)
-        t = wx.StaticText(self, -1, "This is the last tab", (20, 20))
+        t = wx.StaticText(self, -1, "This is the fourth tab", (20, 20))
 
+class TabFive(wx.Panel):
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent)
+        t = wx.StaticText(self, -1, "This is the last tab", (20, 20))
 
 class MainFrame(wx.Frame):
     def __init__(self):
@@ -39,12 +43,15 @@ class MainFrame(wx.Frame):
         tab2 = TabTwo(nb)
         tab3 = TabThree(nb)
         tab4 = TabFour(nb)
+        tab5 = TabFive(nb)
+
 
         # Add the windows to tabs and name them.
         nb.AddPage(tab1, "Tab 1")
         nb.AddPage(tab2, "Tab 2")
         nb.AddPage(tab3, "Tab 3")
         nb.AddPage(tab4, "Tab 4")
+        nb.AddPage(tab5, "Tab 5")
 
         # Set noteboook in a sizer to create the layout
         sizer = wx.BoxSizer()
