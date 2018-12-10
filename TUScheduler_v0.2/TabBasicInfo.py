@@ -17,7 +17,8 @@ class ClassData():
         self.Grade = wx.ComboBox(parent, -1, "", (XCoord + constant.CLASSNAMESIZE+constant.COMBOBOXSIZE, pos[1]), choices=GradeChoices, size=(constant.COMBOBOXSIZE, constant.WIDGET_H))
         self.Grade.SetValue('0')
         self.Theory = wx.CheckBox(parent, -1, label="이론수업", pos=(XCoord,  pos[1]+25))
-        self.Multi = wx.CheckBox(parent, -1, label="분반", pos=(XCoord+constant.CLASSNAMESIZE, pos[1] + 25))
+        self.Multi = wx.ComboBox(parent, -1, "", (XCoord+constant.CLASSNAMESIZE, pos[1] + 25), choices=nHoursChoices, size=(constant.COMBOBOXSIZE, constant.WIDGET_H))
+        #wx.CheckBox(parent, -1, label="분반", pos=(XCoord+constant.CLASSNAMESIZE, pos[1] + 25))
         self.ln = wx.StaticLine(parent, -1, wx.Point(XCoord, pos[1] + 43), size=(constant.CLASSDATASIZE*0.9,-1), style=wx.LI_HORIZONTAL)
 
     def remove(self):
