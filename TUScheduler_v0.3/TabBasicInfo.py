@@ -47,7 +47,8 @@ class ProfInfo():
         nClassChoices = ['1', '2', '3','4', '5', '6', '7', '8', '9', '10']
         self.nClass = 0
 
-        self.nClassCombo = wx.ComboBox(parent, pos=(x+constant.PROF_NCLASS_INDENT, y), choices=nClassChoices, style=wx.CB_READONLY)
+        self.nClassCombo = wx.ComboBox(parent, pos=(x+constant.PROF_NCLASS_INDENT, y), size=(50,20), choices=nClassChoices, style=wx.CB_READONLY)
+        self.nClassCombo.SetValue('0')
         self.nClassCombo.Bind(wx.EVT_COMBOBOX, self.OnSelectNClass)
         self.ClassArr = []
 

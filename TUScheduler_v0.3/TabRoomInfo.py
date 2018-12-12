@@ -15,6 +15,7 @@ class TabRoomInfo(wx.Panel):
         parent.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnTabClicked)
 
     def OnTabClicked(self, e):
+
         print(self.CoreData.nProfessors)
         print(self.CoreData.nClassRooms)
 
