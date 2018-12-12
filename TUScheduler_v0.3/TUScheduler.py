@@ -5,12 +5,20 @@ import wx
 # Define the tab content as classes:
 import TabIntro
 import TabBasicInfo
+import TabRoomInfo
 
 
-class TabTwo(wx.Panel):
-    def __init__(self, parent):
-        wx.Panel.__init__(self, parent)
-        t = wx.StaticText(self, -1, "This is the second tab", (20, 20))
+class CoreData:
+    def __init__(self):
+        self.nProfessors = 0
+        self.nClassRooms = 0
+        self.ClassUnits = []
+
+    def setCoreData(self, nP, nC, classUnits):
+        self.nProfessors = nP
+        self.nClassRooms = nC
+        self.ClassUnits = classUnits
+
 
 class MainFrame(wx.Frame):
     def __init__(self):
@@ -21,17 +29,18 @@ class MainFrame(wx.Frame):
         p = wx.Panel(self)
         nb = wx.Notebook(p)
 
+        self.CoreData = CoreData()
         # Create the tab windows
         self.tabIntro = TabIntro.TabIntro(nb)
-        self.tabBasic = TabBasicInfo.TabBasicInfo(nb)
-        tab2 = TabTwo(nb)
+        self.tabBasic = TabBasicInfo.TabBasicInfo(nb, self.CoreData)
+        self.tabRooms = TabRoomInfo.TabRoomInfo(nb, self.CoreData)
 
 
 
         # Add the windows to tabs and name them.
         nb.AddPage(self.tabIntro, "초기화면")
         nb.AddPage(self.tabBasic, "기본정보 입력")
-        nb.AddPage(tab2, "Tab 2")
+        nb.AddPage(self.tabRooms, "강의불가 시간 입력")
 
         # Set noteboook in a sizer to create the layout
         sizer = wx.BoxSizer()

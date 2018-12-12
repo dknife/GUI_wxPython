@@ -1,6 +1,6 @@
 import wx
-
 import constant
+import os
 
 class ClassData():
     def __init__(self, parent,  i, pos):
@@ -31,6 +31,7 @@ class ClassData():
         self.label2.Hide()
         self.label3.Hide()
         self.Theory.Hide()
+        self.label4.Hide()
         self.Multi.Hide()
         self.ln.Hide()
 
@@ -60,11 +61,11 @@ class ProfInfo():
             for i in range(nClassInput, self.nClass) :
                 self.ClassArr[i].remove()
             del self.ClassArr[nClassInput:self.nClass]
-            self.nClass = nClassInput
         elif nClassInput > self.nClass:
             for i in range(self.nClass, nClassInput):
                 self.ClassArr.append(ClassData(self.parent, i, (self.pos[0] + constant.CLASSGAP, self.pos[1])))
-            self.nClass = nClassInput
+
+        self.nClass = nClassInput
 
     def remove(self):
         for i in range(0, self.nClass):
@@ -79,13 +80,14 @@ class ProfInfo():
 
 class TabBasicInfo(wx.Panel):
 
-    def __init__(self, parent):
+    def __init__(self, parent, coreData):
         # data
         self.nProfessors = 0
         self.ProfInfoArr = []
-        self.nClassRoom = 0
+        self.nClassRooms = 0
         self.ClassUnits = []
         self.bDataGebSuccess = False
+        self.CoreData = coreData
 
 
         wx.Panel.__init__(self, parent)
@@ -93,34 +95,112 @@ class TabBasicInfo(wx.Panel):
         wx.StaticText(self, -1, "기본정보 입력", (constant.XSTART, constant.WIDGET_H))
         wx.StaticText(self, -1, "시간표 작성 대상 교수님의 수는?", (constant.XSTART, constant.NUMBERQUESTION_Y))
         numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15']
-        cb = wx.ComboBox(self, pos=(constant.XSTART+230, constant.NUMBERQUESTION_Y), choices=numbers, style=wx.CB_READONLY)
-        cb.SetValue('0')
-        cb.Bind(wx.EVT_COMBOBOX, self.OnSelect)
+        self.cbNProf = wx.ComboBox(self, pos=(constant.XSTART+230, constant.NUMBERQUESTION_Y), choices=numbers, style=wx.CB_READONLY)
+        self.cbNProf.SetValue('0')
+        self.cbNProf.Bind(wx.EVT_COMBOBOX, self.OnSelect)
 
         wx.StaticText(self, -1, "사용 가능한 실습실의 수는?", (constant.XSTART+400, constant.NUMBERQUESTION_Y))
         classroomnumbers = ['1', '2', '3', '4', '5']
-        cbClassRoom = wx.ComboBox(self, pos=(constant.XSTART+400+200, constant.NUMBERQUESTION_Y), choices=classroomnumbers, style=wx.CB_READONLY)
-        cbClassRoom.SetValue('0')
-        cbClassRoom.Bind(wx.EVT_COMBOBOX, self.OnClassRoomSelect)
+        self.cbClassRoom = wx.ComboBox(self, pos=(constant.XSTART+400+200, constant.NUMBERQUESTION_Y), choices=classroomnumbers, style=wx.CB_READONLY)
+        self.cbClassRoom.SetValue('0')
+        self.cbClassRoom.Bind(wx.EVT_COMBOBOX, self.OnClassRoomSelect)
 
-        self.labelName = wx.StaticText(self, -1, "성함(姓銜)", (constant.XSTART+constant.PROF_NAME_INDENT, constant.DATA_CATEGORY_LINE))
-        self.labelName = wx.StaticText(self, -1, "과목수                   * 이론수업은 실습실이 아닌 일반 강의실로 배정해도 무방한 강의입니다.", (constant.XSTART+constant.PROF_NCLASS_INDENT, constant.DATA_CATEGORY_LINE))
+        self.labelName = wx.StaticText(self, -1, "성함", (constant.XSTART+constant.PROF_NAME_INDENT, constant.DATA_CATEGORY_LINE))
+        self.labelName = wx.StaticText(self, -1, "과목수                   * 이론수업은 실습실이 아닌 일반 강의실로 배정해도 무방한 강의입니다.",
+                                       (constant.XSTART+constant.PROF_NCLASS_INDENT, constant.DATA_CATEGORY_LINE))
 
-        self.SetDataButton = wx.Button(self, wx.ID_ANY, "개설 강의 데이터 생성", pos=(constant.XSTART, constant.DATA_CATEGORY_LINE+50), size=(200, 40), style=0)
+        self.SetDataButton = wx.Button(self, wx.ID_ANY, "강의 데이터 생성 - 이 작업이 성공해야 시간표 작성이 가능합니다.",
+                                       pos=(constant.XSTART, constant.DATA_CATEGORY_LINE+100), size=(400, 40), style=0)
+
         self.SetDataButton.Bind(wx.EVT_BUTTON, self.OnSetData)
-        self.StoreDataButton = wx.Button(self, wx.ID_ANY, "개설 강의 저장", pos=(constant.XSTART+200, constant.DATA_CATEGORY_LINE + 50), size=(200, 40), style=0)
+        self.StoreDataButton = wx.Button(self, wx.ID_ANY, "현재 입력 저장", pos=(constant.XSTART + 100, constant.WIDGET_H-10), size=(200, 30), style=0)
         self.StoreDataButton.Bind(wx.EVT_BUTTON, self.OnStoreData)
+        self.LoadDataButton = wx.Button(self, wx.ID_ANY, "불러오기", pos=(constant.XSTART + 300, constant.WIDGET_H-10), size=(200, 30), style=0)
+        self.LoadDataButton.Bind(wx.EVT_BUTTON, self.OnLoadData)
 
-        self.ClassInfoMsg = wx.StaticText(self, -1, "개설 강의 정보 미생성", (constant.XSTART, constant.DATA_CATEGORY_LINE+50+50))
+        self.ClassInfoMsg = wx.StaticText(self, -1, "개설 강의 정보 미생성", (constant.XSTART, constant.DATA_CATEGORY_LINE+100+50))
 
     def OnClassRoomSelect(self, e):
 
-        self.nClassRoom = int(e.GetString())
+        self.nClassRooms = int(e.GetString())
+        self.CoreData.nClassRooms = self.nClassRooms
+        
+
+    def OnLoadData(self, e):
+
+        openFileDialog = wx.FileDialog(self, "Load Class Data:", ".", "", "class units data (*.cud)|*.cud", wx.FD_OPEN)
+
+        openFileDialog.ShowModal()
+        filePath = openFileDialog.GetPath()
+        openFileDialog.Destroy()
+
+        if filePath is '': return
+
+        size = os.path.getsize(filePath)
+        if size == 0 :
+            msg = "파일의 내용이 없습니다."
+            self.ClassInfoMsg.SetLabel(msg)
+            self.ClassInfoMsg.SetForegroundColour((255, 0, 0))
+            return
+        else:
+            print(size)
+
+        file = open(filePath, "r")
+        nProf = int(next(file).rstrip())
+        nClassRoom = int(next(file))
+        self.cbNProf.SetValue(str(nProf))
+        self.nClassRooms = nClassRoom
+        self.CoreData.nClassRooms = self.nClassRooms
+        self.cbClassRoom.SetValue(str(nClassRoom))
+
+        if nProf<1:
+            msg = "파일 읽기 오류: 교수 수를 찾을 수 없습니다"
+            self.ClassInfoMsg.SetLabel(msg)
+            self.ClassInfoMsg.SetForegroundColour((255, 0, 0))
+
+        # remove current class units
+        for i in range(self.nProfessors) :
+            self.ProfInfoArr[i].remove()
+        del self.ProfInfoArr
+        self.ProfInfoArr = []
+        self.nProfessors = nProf
+        self.CoreData.nProfessors = nProf
+
+        for i in range(0, nProf):
+            self.ProfInfoArr.append(ProfInfo(self, i+1, constant.XSTART, constant.DATA_CATEGORY_LINE+50+i*constant.PROF_DATA_GAP))
+            name = next(file).rstrip()
+            self.ProfInfoArr[i].Name.SetValue(name)
+            nClass = int(next(file))
+            self.ProfInfoArr[i].nClass = nClass
+            self.ProfInfoArr[i].nClassCombo.SetValue(str(nClass))
+            for j in range(0, nClass) :
+                self.ProfInfoArr[i].ClassArr.append(ClassData(self, j, (self.ProfInfoArr[i].pos[0] + constant.CLASSGAP, self.ProfInfoArr[i].pos[1])))
+                self.ProfInfoArr[i].ClassArr[j].ClassName.SetValue(next(file).rstrip())
+                hours = int(next(file))
+                self.ProfInfoArr[i].ClassArr[j].Hours.SetValue(str(hours))
+                grade = int(next(file))
+                self.ProfInfoArr[i].ClassArr[j].Grade.SetValue(str(grade))
+                theory = int(next(file))
+                if theory == 0:
+                    self.ProfInfoArr[i].ClassArr[j].Theory.SetValue(False)
+                else:
+                    self.ProfInfoArr[i].ClassArr[j].Theory.SetValue(True)
+                multi = int(next(file))
+                self.ProfInfoArr[i].ClassArr[j].Multi.SetValue(str(multi))
+
+
+
+
+
+        self.SetDataButton.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+30+self.nProfessors*constant.PROF_DATA_GAP))
+        self.ClassInfoMsg.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+30+self.nProfessors*constant.PROF_DATA_GAP + 50))
+
+
 
     def OnStoreData(self, e):
 
         if self.bDataGebSuccess is False:
-            msg = "!!!! 강의 개설 정보가 완료되지 않아 저장할 수 없습니다. 개설 강의 데이터 생성 버튼부터 눌러 강의 개설을 성공하기 바랍니다."
+            msg = "!!!! 강의 개설 데이터 생성이 완료되지 않았습니다. 저장 데이터는 임시정보입니다."
             self.ClassInfoMsg.SetLabel(msg)
             self.ClassInfoMsg.SetForegroundColour((255, 0, 0))
 
@@ -130,27 +210,23 @@ class TabBasicInfo(wx.Panel):
         filePath = openFileDialog.GetPath()
         openFileDialog.Destroy()
 
+        if filePath is '': return
+
         f = open(filePath, "w")
         f.write(str(self.nProfessors)+"\n")
-        f.write(str(self.nClassRoom)+"\n")
+        f.write(str(self.nClassRooms)+"\n")
 
-        for i in range(len(self.ClassUnits)):
-            f.write(self.ClassUnits[i][1]+"\n") # prof name
-            f.write(self.ClassUnits[i][3]+"\n") # lecture name
-            f.write(str(self.ClassUnits[i][4])+"\n") # hours
-            f.write(str(self.ClassUnits[i][5])+"\n") # grade
-            f.write(str(self.ClassUnits[i][6])+"\n") # theory?
-            f.write(str(self.ClassUnits[i][7])+"\n") # class number
-
-        #for i in range(self.nProfessors) :
-        #    f.write(self.ProfInfoArr[i].Name.GetValue()+"\n")
-        #    for j in range(self.ProfInfoArr[i].nClass) :
-        #        f.write(self.ProfInfoArr[i].ClassArr[j].ClassName.GetValue()+"\n")
-        #        f.write(self.ProfInfoArr[i].ClassArr[j].Hours.GetValue()+"\n")
-        #        f.write(self.ProfInfoArr[i].ClassArr[j].Grade.GetValue()+"\n")
-        #        if self.ProfInfoArr[i].ClassArr[j].Theory is True :
-        #            f.write("1\n")
-        #        else: f.write("0\n")
+        for i in range(self.nProfessors) :
+            f.write(self.ProfInfoArr[i].Name.GetValue()+"\n")
+            f.write(str(self.ProfInfoArr[i].nClass) + "\n")
+            for j in range(self.ProfInfoArr[i].nClass) :
+                f.write(self.ProfInfoArr[i].ClassArr[j].ClassName.GetValue()+"\n")
+                f.write(self.ProfInfoArr[i].ClassArr[j].Hours.GetValue()+"\n")
+                f.write(self.ProfInfoArr[i].ClassArr[j].Grade.GetValue()+"\n")
+                if self.ProfInfoArr[i].ClassArr[j].Theory.GetValue() is True :
+                    f.write("1\n")
+                else: f.write("0\n")
+                f.write(self.ProfInfoArr[i].ClassArr[j].Multi.GetValue()+"\n")
 
 
 
@@ -165,16 +241,15 @@ class TabBasicInfo(wx.Panel):
             for i in range(nProfessorsInput, self.nProfessors) :
                 self.ProfInfoArr[i].remove()
             del self.ProfInfoArr[nProfessorsInput:self.nProfessors]
-            self.nProfessors = nProfessorsInput
-
         elif nProfessorsInput > self.nProfessors :
             for i in range(self.nProfessors, nProfessorsInput):
                 self.ProfInfoArr.append(ProfInfo(self, i+1, constant.XSTART, constant.DATA_CATEGORY_LINE+50+i*constant.PROF_DATA_GAP))
-            self.nProfessors = nProfessorsInput
+        self.nProfessors = nProfessorsInput
+        self.CoreData.nProfessors = self.nProfessors
 
-        self.SetDataButton.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+50+self.nProfessors*constant.PROF_DATA_GAP))
-        self.ClassInfoMsg.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+50+self.nProfessors*constant.PROF_DATA_GAP + 50))
-        self.StoreDataButton.SetPosition((constant.XSTART+200, constant.DATA_CATEGORY_LINE + 50 + self.nProfessors * constant.PROF_DATA_GAP))
+        self.SetDataButton.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+30+self.nProfessors*constant.PROF_DATA_GAP))
+        self.ClassInfoMsg.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+30+self.nProfessors*constant.PROF_DATA_GAP + 50))
+
 
 
     def OnSetData(self, e):
@@ -187,7 +262,7 @@ class TabBasicInfo(wx.Panel):
         if self.nProfessors == 0 :
             self.bDataGebSuccess = False
             eMsg = "교수님 수가 입력되지 않았습니다."
-        if self.nClassRoom == 0 :
+        if self.nClassRooms == 0 :
             self.bDataGebSuccess = False
             eMsg = "실습실 수가 입력되지 않았습니다."
         else :
@@ -228,6 +303,8 @@ class TabBasicInfo(wx.Panel):
             self.ClassInfoMsg.SetLabel(msg)
             self.ClassInfoMsg.SetForegroundColour((0,0,255))
             print(self.ClassUnits)
+            self.CoreData.ClassUnits = self.ClassUnits
+
         else:
             msg = "!!!! 강의 개설 실패 \n실패 메시지: " + eMsg
             self.ClassInfoMsg.SetLabel(msg)
