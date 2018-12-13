@@ -36,7 +36,6 @@ class MainFrame(wx.Frame):
         self.tabRooms = TabRoomInfo.TabRoomInfo(nb, self.CoreData)
 
 
-
         # Add the windows to tabs and name them.
         nb.AddPage(self.tabIntro, "초기화면")
         nb.AddPage(self.tabBasic, "기본정보 입력")
