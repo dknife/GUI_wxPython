@@ -12,7 +12,7 @@ class AvailableTimeTab(wx.Panel):
         self.panel = wx.Panel(self, size=(1280,600))
         self.panel.SetBackgroundColour(wx.Colour(210, 210, 210))
         self.name = name
-        self.label1 = wx.StaticText(self.panel, -1, name + "에 대해 수업을 배정할 수 없는 시간을 체크하세요", (10,10))
+        self.label1 = wx.StaticText(self.panel, -1, name + "에 대해 수업을 배정할 수 없는 시간을 체크하세요", (50,20))
 
         self.unavailable =[[],[],[],[],[]]
         self.classTimes = [[],[],[],[],[]]
