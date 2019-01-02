@@ -1,18 +1,78 @@
 import wx
+import wx.lib.scrolledpanel as scrolled
+
+import random
+
+class Chromosome:
+    def __init__(self, nClassRooms):
+        self.weekday = random.randint(0,4)
+        self.room = random.randint(0,nClassRooms-1)
+        self.hour = random.randint(0,9)
+
+    def printInfo(self):
+        print(self.weekday, self.room, self.hour)
+
+class Genome:
+    def __init__(self, nClassUnits, nClassRooms):
+        self.chromosome = [Chromosome(nClassRooms) for i in range(nClassUnits) ]
+
+    def printInfo(self):
+        for i in range(0, len(self.chromosome)) :
+            self.chromosome[i].printInfo()
+
+class TimeTable(scrolled.ScrolledPanel):
+    def __init__(self, parent):
+
+        scrolled.ScrolledPanel.__init__(self, parent, -1)
+
+        button1 = wx.Button(parent, label="Button 1", pos=(0, 50), size=(50, 50))
+        button2 = wx.Button(parent, label="Button 2", pos=(0, 100), size=(50, 50))
+        button3 = wx.Button(parent, label="Button 3", pos=(0, 150), size=(50, 50))
+        button4 = wx.Button(parent, label="Button 4", pos=(0, 200), size=(50, 50))
+        button5 = wx.Button(parent, label="Button 5", pos=(0, 250), size=(50, 50))
+        button6 = wx.Button(parent, label="Button 6", pos=(0, 300), size=(50, 50))
+        button7 = wx.Button(parent, label="Button 7", pos=(0, 350), size=(50, 50))
+        button8 = wx.Button(parent, label="Button 8", pos=(0, 400), size=(50, 50))
+
+        bSizer = wx.BoxSizer(wx.VERTICAL)
+        bSizer.Add(button1, 0, wx.ALL, 5)
+        bSizer.Add(button2, 0, wx.ALL, 5)
+        bSizer.Add(button3, 0, wx.ALL, 5)
+        bSizer.Add(button4, 0, wx.ALL, 5)
+        bSizer.Add(button5, 0, wx.ALL, 5)
+        bSizer.Add(button6, 0, wx.ALL, 5)
+        bSizer.Add(button7, 0, wx.ALL, 5)
+        bSizer.Add(button8, 0, wx.ALL, 5)
+
+        parent.SetSizer(bSizer)
+        self.SetupScrolling()
 
 class TabSolve(wx.Panel):
 
     def __init__(self, parent, coreData):
         wx.Panel.__init__(self, parent)
+
+        self.genome = Genome(0,0)
+
         self.parent = parent
         self.parent.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnTabClicked)
         self.CoreData = coreData
 
-
-
         self.Msg_DataDone = wx.StaticText(self, -1, "시간표 생성 가능 여부", (100, 50))
         self.CreateButton = wx.Button(self, -1, "시간표 생성", pos=(300,45), size=(100,30))
+        self.CreateButton.Bind(wx.EVT_BUTTON, self.OnCreate)
         self.Msg_ProfInfo = wx.StaticText(self, -1, "교수정보", (100, 90))
+
+        panel2 = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(1400, 200), pos=(0, 150),
+                                                    style=wx.SIMPLE_BORDER)
+        panel2.SetupScrolling()
+        panel2.SetBackgroundColour('#FFFFFF')
+
+        self.scheduleView = TimeTable(panel2)
+
+
+    def OnCreate(self, e):
+        self.genome = Genome(len(self.CoreData.ClassUnits), self.CoreData.nClassRooms)
 
     def OnTabClicked(self, e):
         if self.parent is not e.GetEventObject():
@@ -34,6 +94,7 @@ class TabSolve(wx.Panel):
             msg = msg + self.CoreData.ProfInfo[i].Name.GetValue() + " 교수님 | "
         self.Msg_ProfInfo.SetLabel(msg)
 
+        self.genome.printInfo()
 
         if e is not None:
             e.Skip() # for multiple event handlers
