@@ -63,12 +63,13 @@ class TabSolve(wx.Panel):
         self.CreateButton.Bind(wx.EVT_BUTTON, self.OnCreate)
         self.Msg_ProfInfo = wx.StaticText(self, -1, "교수정보", (100, 90))
 
-        panel2 = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(1400, 200), pos=(0, 150),
+        panel2 = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(1400, 300), pos=(0, 150),
                                                     style=wx.SIMPLE_BORDER)
-        panel2.SetupScrolling()
-        panel2.SetBackgroundColour('#FFFFFF')
+
 
         self.scheduleView = TimeTable(panel2)
+        panel2.SetupScrolling()
+        panel2.SetBackgroundColour('#00FFFF')
 
 
     def OnCreate(self, e):
