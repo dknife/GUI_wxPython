@@ -26,13 +26,13 @@ class TimeTable(scrolled.ScrolledPanel):
         scrolled.ScrolledPanel.__init__(self, parent, -1)
 
         button1 = wx.Button(parent, label="Button 1", pos=(0, 50), size=(50, 50))
-        button2 = wx.Button(parent, label="Button 2", pos=(0, 100), size=(50, 50))
-        button3 = wx.Button(parent, label="Button 3", pos=(0, 150), size=(50, 50))
-        button4 = wx.Button(parent, label="Button 4", pos=(0, 200), size=(50, 50))
-        button5 = wx.Button(parent, label="Button 5", pos=(0, 250), size=(50, 50))
-        button6 = wx.Button(parent, label="Button 6", pos=(0, 300), size=(50, 50))
-        button7 = wx.Button(parent, label="Button 7", pos=(0, 350), size=(50, 50))
-        button8 = wx.Button(parent, label="Button 8", pos=(0, 400), size=(50, 50))
+        button2 = wx.Button(parent, label="Button 2", pos=(0, 200), size=(50, 50))
+        button3 = wx.Button(parent, label="Button 3", pos=(0, 350), size=(50, 50))
+        button4 = wx.Button(parent, label="Button 4", pos=(0, 400), size=(50, 50))
+        button5 = wx.Button(parent, label="Button 5", pos=(0, 550), size=(50, 50))
+        button6 = wx.Button(parent, label="Button 6", pos=(0, 600), size=(50, 50))
+        button7 = wx.Button(parent, label="Button 7", pos=(0, 750), size=(50, 50))
+        button8 = wx.Button(parent, label="Button 8", pos=(100, 800), size=(50, 50))
 
         bSizer = wx.BoxSizer(wx.VERTICAL)
         bSizer.Add(button1, 0, wx.ALL, 5)
@@ -45,7 +45,7 @@ class TimeTable(scrolled.ScrolledPanel):
         bSizer.Add(button8, 0, wx.ALL, 5)
 
         parent.SetSizer(bSizer)
-        self.SetupScrolling()
+
 
 class TabSolve(wx.Panel):
 

@@ -1,4 +1,5 @@
 import wx
+import wx.lib.scrolledpanel as scrolled
 import constant
 import os
 
@@ -37,26 +38,31 @@ class ClassData():
 
 
 class ProfInfo():
-    def __init__(self, parent, i, x, y):
+    def __init__(self, parent, sizer, i, x, y):
+
+        self.sizer = sizer
+
+        vY = parent.GetViewStart()[1] * parent.GetScrollPixelsPerUnit()[1]
+
         message ="교수"+str(i)+":"
         self.parent = parent
         self.pos = (x,y)
-        self.Label = wx.StaticText(parent, -1, message, (x,y))
-        self.Name = wx.TextCtrl(parent, -1, "", (x+constant.PROF_NAME_INDENT, y), size=(constant.PROFNAMEWIDTH,constant.WIDGET_H), style=wx.TE_PROCESS_ENTER)
+        self.Label = wx.StaticText(parent, -1, message, (x,y-vY))
+
+        self.Name = wx.TextCtrl(parent, -1, "", (x+constant.PROF_NAME_INDENT, y-vY), size=(constant.PROFNAMEWIDTH,constant.WIDGET_H), style=wx.TE_PROCESS_ENTER)
 
         nClassChoices = ['1', '2', '3','4', '5', '6', '7', '8', '9', '10']
         self.nClass = 0
 
-        self.nClassCombo = wx.ComboBox(parent, pos=(x+constant.PROF_NCLASS_INDENT, y), size=(50,20), choices=nClassChoices, style=wx.CB_READONLY)
+        self.nClassCombo = wx.ComboBox(parent, pos=(x+constant.PROF_NCLASS_INDENT, y-vY), size=(50,20), choices=nClassChoices, style=wx.CB_READONLY)
         self.nClassCombo.SetValue('0')
         self.nClassCombo.Bind(wx.EVT_COMBOBOX, self.OnSelectNClass)
         self.ClassArr = []
 
-
-
     def OnSelectNClass(self, e):
 
         nClassInput = int(e.GetString())
+        vY = self.parent.GetViewStart()[1] * self.parent.GetScrollPixelsPerUnit()[1]
         if nClassInput == self.nClass: return
         elif nClassInput < self.nClass:
             for i in range(nClassInput, self.nClass) :
@@ -64,7 +70,7 @@ class ProfInfo():
             del self.ClassArr[nClassInput:self.nClass]
         elif nClassInput > self.nClass:
             for i in range(self.nClass, nClassInput):
-                self.ClassArr.append(ClassData(self.parent, i, (self.pos[0] + constant.CLASSGAP, self.pos[1])))
+                self.ClassArr.append(ClassData(self.parent, i, (self.pos[0] + constant.CLASSGAP, self.pos[1]-vY)))
 
         self.nClass = nClassInput
 
@@ -115,9 +121,19 @@ class TabBasicInfo(wx.Panel):
         self.LoadDataButton = wx.Button(self, wx.ID_ANY, "불러오기", pos=(constant.XSTART + 300, constant.WIDGET_H-10), size=(200, 30), style=0)
         self.LoadDataButton.Bind(wx.EVT_BUTTON, self.OnLoadData)
 
-        self.ClassInfoMsg = wx.StaticText(self, -1, "개설 강의 정보 미생성", (constant.XSTART, constant.DATA_CATEGORY_LINE+50))
+        self.ProfInfoPanel = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(1350, 600), pos=(0, 130),
+                                                    style=wx.SIMPLE_BORDER)
+        self.ProfInfoPanel.SetupScrolling()
+        self.ProfInfoPanel.SetBackgroundColour('#CCCCCC')
+
+        self.bSizer =  wx.BoxSizer(wx.VERTICAL)
+        self.ProfInfoPanel.SetSizer(self.bSizer)
+
+        self.ClassInfoMsg = wx.StaticText(self, -1, "개설 강의 정보 미생성", (constant.XSTART, 740))
 
         parent.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnSetData)
+
+
 
     def OnClassRoomSelect(self, e):
 
@@ -165,15 +181,17 @@ class TabBasicInfo(wx.Panel):
         self.nProfessors = nProf
         self.CoreData.nProfessors = nProf
 
+        vY = self.ProfInfoPanel.GetViewStart()[1] * self.ProfInfoPanel.GetScrollPixelsPerUnit()[1]
+
         for i in range(0, nProf):
-            self.ProfInfoArr.append(ProfInfo(self, i+1, constant.XSTART, constant.DATA_CATEGORY_LINE+50+i*constant.PROF_DATA_GAP))
+            self.ProfInfoArr.append(ProfInfo(self.ProfInfoPanel, self.bSizer, i + 1, constant.XSTART, 50 + i * constant.PROF_DATA_GAP))
             name = next(file).rstrip()
             self.ProfInfoArr[i].Name.SetValue(name)
             nClass = int(next(file))
             self.ProfInfoArr[i].nClass = nClass
             self.ProfInfoArr[i].nClassCombo.SetValue(str(nClass))
             for j in range(0, nClass) :
-                self.ProfInfoArr[i].ClassArr.append(ClassData(self, j, (self.ProfInfoArr[i].pos[0] + constant.CLASSGAP, self.ProfInfoArr[i].pos[1])))
+                self.ProfInfoArr[i].ClassArr.append(ClassData(self.ProfInfoPanel, j, (self.ProfInfoArr[i].pos[0] + constant.CLASSGAP, self.ProfInfoArr[i].pos[1]-vY)))
                 self.ProfInfoArr[i].ClassArr[j].ClassName.SetValue(next(file).rstrip())
                 hours = int(next(file))
                 self.ProfInfoArr[i].ClassArr[j].Hours.SetValue(str(hours))
@@ -187,9 +205,14 @@ class TabBasicInfo(wx.Panel):
                 multi = int(next(file))
                 self.ProfInfoArr[i].ClassArr[j].Multi.SetValue(str(multi))
 
-        self.ClassInfoMsg.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+30+self.nProfessors*constant.PROF_DATA_GAP + 20))
+        self.ClassInfoMsg.SetPosition((constant.XSTART,740))
 
         self.OnSetData(None)
+
+        self.bSizer = wx.BoxSizer(wx.VERTICAL)
+        self.bSizer.AddSpacer(constant.PROF_DATA_GAP*(self.nProfessors+1))
+        self.ProfInfoPanel.SetSizer(self.bSizer)
+        self.ProfInfoPanel.SetupScrolling()
 
     def OnStoreData(self, e):
 
@@ -237,12 +260,17 @@ class TabBasicInfo(wx.Panel):
             del self.ProfInfoArr[nProfessorsInput:self.nProfessors]
         elif nProfessorsInput > self.nProfessors :
             for i in range(self.nProfessors, nProfessorsInput):
-                self.ProfInfoArr.append(ProfInfo(self, i+1, constant.XSTART, constant.DATA_CATEGORY_LINE+50+i*constant.PROF_DATA_GAP))
+                self.ProfInfoArr.append(ProfInfo(self.ProfInfoPanel, self.bSizer, i+1, constant.XSTART, 50+i*constant.PROF_DATA_GAP))
         self.nProfessors = nProfessorsInput
         self.CoreData.nProfessors = self.nProfessors
 
-        self.ClassInfoMsg.SetPosition((constant.XSTART,constant.DATA_CATEGORY_LINE+30+self.nProfessors*constant.PROF_DATA_GAP + 20))
+        self.ClassInfoMsg.SetPosition((constant.XSTART,740))
         self.OnSetData(None)
+
+        self.bSizer = wx.BoxSizer(wx.VERTICAL)
+        self.bSizer.AddSpacer(constant.PROF_DATA_GAP*(self.nProfessors+1))
+        self.ProfInfoPanel.SetSizer(self.bSizer)
+        self.ProfInfoPanel.SetupScrolling()
 
 
     def OnSetData(self, e):
