@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60915b30-e0a8-4bbb-9e74-008a3db51738" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/TUScheduler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/TabBasicInfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/TabIntro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/TabRoomInfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/TabSolve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/constant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/images/intro.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/test2.cud" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.8/test3.cud" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v0.8/TabBasicInfo.py" beforeDir="false" afterPath="$PROJECT_DIR$/TUScheduler_v0.8/TabBasicInfo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v0.8/TabSolve.py" beforeDir="false" afterPath="$PROJECT_DIR$/TUScheduler_v0.8/TabSolve.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,31 +17,33 @@
     <session id="-580370034">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.142" value="1" />
+          <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.69" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="12" />
+          <entry key="py" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="12" />
+          <entry key="Python" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2045" />
+          <entry key="py" value="8027" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2045" />
+          <entry key="Python" value="8027" />
         </counts>
       </usages-collector>
     </session>
@@ -59,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.7/TabBasicInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="244" column="36" lean-forward="true" selection-start-line="244" selection-start-column="36" selection-end-line="244" selection-end-column="36" />
+            <state relative-caret-position="165">
+              <caret line="317" column="39" selection-start-line="317" selection-start-column="29" selection-end-line="317" selection-end-column="39" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -71,8 +65,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TabSolve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="93" column="66" selection-start-line="93" selection-start-column="66" selection-end-line="93" selection-end-column="66" />
+            <state relative-caret-position="257">
+              <caret line="259" column="55" lean-forward="true" selection-start-line="259" selection-start-column="55" selection-end-line="259" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1547103315111" expanded="true" signature="666:5671" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="2742:2900" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="3195:3411" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="3437:4486" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="4481:4486" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="4523:4532" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="6635:7040" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="8735:11270" ph="..." />
+                <marker date="1547103315111" expanded="true" signature="11296:11305" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TUScheduler_v0.7/TabSolve.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -81,14 +96,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/constant.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TUScheduler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="209">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -99,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TabBasicInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
-              <caret line="129" column="91" lean-forward="true" selection-start-line="129" selection-start-column="91" selection-end-line="129" selection-end-column="91" />
+            <state relative-caret-position="188">
+              <caret line="316" column="74" selection-start-line="316" selection-start-column="74" selection-end-line="316" selection-end-column="74" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -111,7 +122,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TabRoomInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="399">
               <caret line="24" selection-start-line="24" selection-end-line="28" selection-end-column="109" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -123,7 +134,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.6/TabRoomInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2052">
+            <state relative-caret-position="1995">
               <caret line="108" column="25" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -135,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.6/TabBasicInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2147">
+            <state relative-caret-position="2109">
               <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="66" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -156,7 +167,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TUScheduler_v0.5/TabBasicInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5738">
+            <state relative-caret-position="5700">
               <caret line="302" column="51" selection-start-line="302" selection-start-column="51" selection-end-line="302" selection-end-column="51" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -187,6 +198,11 @@
       <find>sizer</find>
       <find>ProfInfo</find>
       <find>ProfInfoPanel</find>
+      <find>ClassUni</find>
+      <find>print</find>
+      <find>bestFit</find>
+      <find>ClassUnits</find>
+      <find>Swap</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -210,9 +226,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1983" />
-    <option name="y" value="39" />
-    <option name="width" value="1942" />
+    <option name="x" value="6" />
+    <option name="y" value="3" />
+    <option name="width" value="3857" />
     <option name="height" value="1100" />
   </component>
   <component name="ProjectView">
@@ -227,11 +243,6 @@
             <path>
               <item name="GUI_wxPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="GUI_wxPython" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GUI_wxPython" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GUI_wxPython" type="462c0819:PsiDirectoryNode" />
-              <item name="TUScheduler_v0.7" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GUI_wxPython" type="b2602c69:ProjectViewProjectNode" />
@@ -444,12 +455,12 @@
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14712153" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32640332" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3991684" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -458,12 +469,12 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="right" id="R Packages" />
-      <window_info anchor="right" id="R Graphics" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="right" id="R Graphics" order="4" />
+      <window_info anchor="right" id="R Packages" order="5" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -482,9 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="92" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -502,9 +510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="24" column="66" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -515,10 +520,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.7/TabSolve.py">
+    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/constant.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TUScheduler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+        <state relative-caret-position="209">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TabRoomInfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" selection-start-line="24" selection-end-line="28" selection-end-column="109" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -527,7 +545,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TUScheduler_v0.6/TabRoomInfo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2052">
+        <state relative-caret-position="1995">
           <caret line="108" column="25" selection-start-line="108" selection-start-column="25" selection-end-line="108" selection-end-column="25" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -537,7 +555,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TUScheduler_v0.6/TabBasicInfo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2147">
+        <state relative-caret-position="2109">
           <caret line="113" column="8" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="66" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -554,7 +572,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TUScheduler_v0.5/TabBasicInfo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5738">
+        <state relative-caret-position="5700">
           <caret line="302" column="51" selection-start-line="302" selection-start-column="51" selection-end-line="302" selection-end-column="51" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -564,20 +582,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TUScheduler_v0.7/TabBasicInfo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="244" column="36" lean-forward="true" selection-start-line="244" selection-start-column="36" selection-end-line="244" selection-end-column="36" />
+        <state relative-caret-position="165">
+          <caret line="317" column="39" selection-start-line="317" selection-start-column="29" selection-end-line="317" selection-end-column="39" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/constant.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TUScheduler.py">
+    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.7/TabSolve.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="133">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -586,18 +602,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TabBasicInfo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="129" column="91" lean-forward="true" selection-start-line="129" selection-start-column="91" selection-end-line="129" selection-end-column="91" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TabRoomInfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="24" selection-start-line="24" selection-end-line="28" selection-end-column="109" />
+        <state relative-caret-position="188">
+          <caret line="316" column="74" selection-start-line="316" selection-start-column="74" selection-end-line="316" selection-end-column="74" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -606,10 +612,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TUScheduler_v0.8/TabSolve.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="93" column="66" selection-start-line="93" selection-start-column="66" selection-end-line="93" selection-end-column="66" />
+        <state relative-caret-position="257">
+          <caret line="259" column="55" lean-forward="true" selection-start-line="259" selection-start-column="55" selection-end-line="259" selection-end-column="55" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
+            <marker date="1547103315111" expanded="true" signature="666:5671" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="2742:2900" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="3195:3411" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="3437:4486" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="4481:4486" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="4523:4532" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="6635:7040" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="8735:11270" ph="..." />
+            <marker date="1547103315111" expanded="true" signature="11296:11305" ph="..." />
           </folding>
         </state>
       </provider>

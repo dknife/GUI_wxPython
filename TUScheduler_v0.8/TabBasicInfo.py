@@ -156,7 +156,7 @@ class TabBasicInfo(wx.Panel):
             self.ClassInfoMsg.SetForegroundColour((255, 0, 0))
             return
         else:
-            print("강의 개설 데이터 읽어들이기: 총 " + str(size) + " bytes" )
+            msg = "강의 개설 데이터 읽어들이기: 총 " + str(size) + " bytes\n"
 
         file = open(filePath, "r")
         nProf = int(next(file).rstrip())
@@ -167,7 +167,7 @@ class TabBasicInfo(wx.Panel):
         self.cbClassRoom.SetValue(str(nClassRoom))
 
         if nProf<1:
-            msg = "파일 읽기 오류: 교수 수를 찾을 수 없습니다"
+            msg = msg + "파일 읽기 오류: 교수 수를 찾을 수 없습니다"
             self.ClassInfoMsg.SetLabel(msg)
             self.ClassInfoMsg.SetForegroundColour((255, 0, 0))
 
@@ -204,6 +204,7 @@ class TabBasicInfo(wx.Panel):
                 self.ProfInfoArr[i].ClassArr[j].Multi.SetValue(str(multi))
 
         self.ClassInfoMsg.SetPosition((constant.XSTART,740))
+        msg = msg + "READ DONE"
 
         self.OnSetData(None)
 
@@ -323,13 +324,13 @@ class TabBasicInfo(wx.Panel):
             msg = "강의 개설 성공 \n총 강의 개설 건수 = " + str(len(self.ClassUnits)) + "\n\n시간표 작성이 가능합니다. 강의 개설 불가 시간을 입력하세요."
             self.ClassInfoMsg.SetLabel(msg)
             self.ClassInfoMsg.SetForegroundColour((0,0,255))
-            for i in range(len(self.ClassUnits)):
-                print(self.ClassUnits[i])
+            #for i in range(len(self.ClassUnits)):
+            #    print(self.ClassUnits[i])
             self.CoreData.ClassUnits = self.ClassUnits
             self.CoreData.bClassDataFinished = True
 
         else:
-            print("강의 개설 정보 생성 실패")
+            #print("강의 개설 정보 생성 실패")
             msg = "!!!! 강의 개설 실패 \n실패 메시지: " + eMsg + "\n\n 아직은 시간표 작성이 불가능합니다. 강의 기본 정보를 완성하세요."
             self.ClassInfoMsg.SetLabel(msg)
             self.ClassInfoMsg.SetForegroundColour((255,0,0))
