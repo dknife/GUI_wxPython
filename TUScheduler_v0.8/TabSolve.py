@@ -225,13 +225,19 @@ class TabSolve(wx.Panel):
             unit = wx.StaticText(panel, -1, className+"\n"+name +"\n"+str(grade)+"학년/"+str(credits)+"시간",
                           pos=(SCHEDULE_ITEM_W + 10 + SCHEDULE_ITEM_W*self.CoreData.nClassRooms*day + SCHEDULE_ITEM_W*room, SCHEDULE_ITEM_H*2 + hour*SCHEDULE_ITEM_H),
                           size=(SCHEDULE_ITEM_W - 10, SCHEDULE_ITEM_H * credits))
-            line = wx.StaticText(panel, -1, '',
+            line1= wx.StaticText(panel, -1, '',
                                  pos=(
                                  SCHEDULE_ITEM_W + SCHEDULE_ITEM_W * self.CoreData.nClassRooms * day + SCHEDULE_ITEM_W * room,
                                  SCHEDULE_ITEM_H * 2 + hour * SCHEDULE_ITEM_H),
                                  size=(10, SCHEDULE_ITEM_H * credits))
+            line2 = wx.StaticText(panel, -1, '',
+                                  pos=(
+                                      SCHEDULE_ITEM_W + SCHEDULE_ITEM_W * self.CoreData.nClassRooms * day + SCHEDULE_ITEM_W * room,
+                                      SCHEDULE_ITEM_H * 2 + (hour + credits) * SCHEDULE_ITEM_H - 10),
+                                  size=(SCHEDULE_ITEM_W, 10))
             unit.SetBackgroundColour(profColors[profId%10])
-            line.SetBackgroundColour(profColors[(profId+2) % 10])
+            line1.SetBackgroundColour(profColors[(profId+2) % 10])
+            line2.SetBackgroundColour(profColors[(profId + 2) % 10])
             unit.SetTransparent(0.75)
             unit.Wrap(2)
 
