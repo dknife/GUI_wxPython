@@ -17,7 +17,7 @@ class CoreData:
         self.ClassUnits = []
         self.ProfInfo = []
         self.tabBasic = None
-
+        self.tabAvailability = None
 
 
 class MainFrame(wx.Frame):
@@ -33,7 +33,7 @@ class MainFrame(wx.Frame):
         # Create the tab windows
         self.tabIntro = TabIntro.TabIntro(nb)
         self.CoreData.tabBasic = self.tabBasic = TabBasicInfo.TabBasicInfo(nb, self.CoreData)
-        self.tabRooms = TabRoomInfo.TabRoomInfo(nb, self.CoreData)
+        self.CoreData.tabAvailability = self.tabRooms = TabRoomInfo.TabRoomInfo(nb, self.CoreData)
         self.tabSolve = TabSolve.TabSolve(nb, self.CoreData)
 
 

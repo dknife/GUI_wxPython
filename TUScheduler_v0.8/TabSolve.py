@@ -103,7 +103,7 @@ class GeneticEvolver:
 
 
     def Select(self, a, b, max):
-        rVal = random.randrange(0, 10001) % 2
+        rVal = random.randrange(0, 10001) % 4
         if rVal == 0 :
             return a%max
         elif rVal == 1 :
@@ -111,7 +111,7 @@ class GeneticEvolver:
         elif rVal == 2:
             return int((a+b)/2)
         else :
-            return ((a+b)*rVal*rVal)%max
+            return (a+b)%max
 
     def CrossOver(self, i, j):
         iGene = self.GenePool[i].chromosome
@@ -120,7 +120,11 @@ class GeneticEvolver:
         for idx in range(len(iGene)):
             child[idx].weekday = self.Select(iGene[idx].weekday, jGene[idx].weekday, 5)
             child[idx].room = self.Select(iGene[idx].room, jGene[idx].room, self.CoreData.nClassRooms)
-            child[idx].hour = self.Select(iGene[idx].hour, jGene[idx].hour, 10-self.CoreData.ClassUnits[idx][4])
+            child[idx].hour = self.Select(iGene[idx].hour, jGene[idx].hour, 9-self.CoreData.ClassUnits[idx][4])
+
+        if self.Fitness[i] > self.Fitness[j]: self.Mutate(j)
+        else: self.Mutate(i)
+
         return child
 
     def Mutate(self, i):
@@ -134,11 +138,22 @@ class GeneticEvolver:
             iGene[idx].hour = (iGene[idx].hour + rVal) % (10 - self.CoreData.ClassUnits[idx][4])
 
 
+    def chromosomeModification(self, chromosome):
+        rVal = random.randrange(0, 10001)
+        chromosome.weekday = (chromosome.weekday + rVal) % 5
+        rVal = random.randrange(0, 10001)
+        chromosome.room = (chromosome.room + rVal) % self.CoreData.nClassRooms
+        rVal = random.randrange(0, 10001)
+        chromosome.hour = (chromosome.hour + rVal) % (9)
 
+
+    def slotIdx(self, nRooms, day, room, hour):
+        return day * (2 * 10 * nRooms) + room * (2 * 10) + hour * 2
 
     def ComputeFitness(self, gene, data):
         fitness  = 0.0
         slots =  [-1] * 2 * 10 * data.nClassRooms * 5 # 10 hours in nClassRooms for 5 days
+
         # fitness check slots setting and overlapping test
         for i in range(len(data.ClassUnits)):  # for each chromosome
             day = gene.chromosome[i].weekday
@@ -151,18 +166,50 @@ class GeneticEvolver:
 
             for h in range(hour, hour + credits):
 
-                if h <= 9:
-                    idx1 = day * (2 * 10 * data.nClassRooms) + room * (2 * 10) + (h) * 2
-                    idx2 = day * (2 * 10 * data.nClassRooms) + room * (2 * 10) + (h) * 2 + 1
+                if h < 9:
+                    idx = self.slotIdx(data.nClassRooms, day, room, h)
+                    idx1, idx2 = idx, idx + 1
                     curID = slots[idx1]
                     if curID >= 0 :
                         fitness -= 10
+                        self.chromosomeModification(gene.chromosome[i])
                     else:
                         slots[idx1] = profId
                         slots[idx2] = grade
                 else:
                     #print("night")
                     fitness -= 10
+                    self.chromosomeModification(gene.chromosome[i])
+
+                # Availability Check
+
+                if h < 10 and data.tabAvailability.GradeTabs[grade-1].unavailable[day][h].GetValue()  is True :
+                    fitness -= 10
+                    self.chromosomeModification(gene.chromosome[i])
+
+                if h < 10 and data.tabAvailability.ProfTabs[profId].unavailable[day][h].GetValue() is True:
+                    fitness -= 10
+                    self.chromosomeModification(gene.chromosome[i])
+
+                if h < 10 and data.tabAvailability.RoomTabs[room].unavailable[day][h].GetValue() is True:
+                    fitness -= 10
+                    self.chromosomeModification(gene.chromosome[i])
+
+
+        # professor and grade overlapping at the same time
+        for dayIdx in range(5) :
+            for hourIdx in range(9):
+                for roomIdx in range(data.nClassRooms) :
+                    for anotherRoom in range(roomIdx+1, data.nClassRooms):
+                        idx1 = self.slotIdx(data.nClassRooms, dayIdx, roomIdx, hourIdx)
+                        idx2 = self.slotIdx(data.nClassRooms, dayIdx, anotherRoom, hourIdx)
+                        if slots[idx1] == slots[idx2] and slots[idx1]>=0 :
+                            fitness -= 10.0
+                            #self.chromosomeModification(gene.chromosome[i])
+                        if slots[idx1+1] == slots[idx2+1] and slots[idx1+1]>=0 :
+                            fitness -= 10.0
+                            #self.chromosomeModification(gene.chromosome[i])
+
 
         # professor and grade check
         return fitness
@@ -197,13 +244,14 @@ class TabSolve(wx.Panel):
             self.evolover.nextGen()
             self.drawScheduleFrame()
             self.drawGenome(self.evolover.GenePool[self.evolover.bestIdx], self.ScheduleViewPanel)
+            print("best fitness = ", self.evolover.bestFit)
             #print('best gene fitness = ', self.evolover.bestFit, self.evolover.bestIdx)
             if self.evolover.Generation >= self.evolover.maxGeneration :
                 self.bRunning = False
 
 
     def OnCreateSchedule(self, e):
-        self.evolover = GeneticEvolver(self.CoreData, 500, 100)
+        self.evolover = GeneticEvolver(self.CoreData, 1000, 100)
         self.bRunning = True
 
 
