@@ -36,8 +36,8 @@ class GeneticEvolver:
         self.CoreData = coreData
         self.GenePool = [Genome(len(self.CoreData.ClassUnits), self.CoreData.nClassRooms) for i in range(nPopulation) ]
         self.Fitness = [ 0.0 ] * nPopulation
-        self.BestFitness = -1000000000000000
-        self.BestIdx = -1
+        self.bestFit = -1000000000000000
+        self.bestIdx = -1
 
 
     def nextGen(self):
@@ -227,8 +227,12 @@ class TabSolve(wx.Panel):
         self.CoreData = coreData
 
         self.Msg_DataDone = wx.StaticText(self, -1, "시간표 생성 가능 여부", (100, 50))
-        self.CreateButton = wx.Button(self, -1, "시간표 생성", pos=(300,45), size=(100,30))
+        self.CreateButton = wx.Button(self, -1, "시간표 신규 생성", pos=(300,45), size=(150,30))
         self.CreateButton.Bind(wx.EVT_BUTTON, self.OnCreateSchedule)
+        self.StopGeneration = wx.Button(self, -1, "시간표 생성 중단", pos=(450, 45), size=(150, 30))
+        self.StopGeneration.Bind(wx.EVT_BUTTON, self.OnStopCreatingSchedule)
+        self.StopGeneration = wx.Button(self, -1, "시간표 생성 계속", pos=(600, 45), size=(150, 30))
+        self.StopGeneration.Bind(wx.EVT_BUTTON, self.OnResumeCeatingSchedule)
         self.Msg_ProfInfo = wx.StaticText(self, -1, "교수정보", (100, 90))
 
         self.ScheduleViewPanel = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(1350, 600), pos=(0, 130),
@@ -236,24 +240,36 @@ class TabSolve(wx.Panel):
         self.ScheduleViewPanel.SetupScrolling()
         self.ScheduleViewPanel.SetBackgroundColour('#CCCCCC')
 
+        self.evolover = GeneticEvolver(self.CoreData, 1000, 100)
+
         self.Bind(wx.EVT_IDLE, self.OnIdle)
 
 
     def OnIdle(self, e):
         if self.bRunning:
             self.evolover.nextGen()
-            self.drawScheduleFrame()
-            self.drawGenome(self.evolover.GenePool[self.evolover.bestIdx], self.ScheduleViewPanel)
-            print("best fitness = ", self.evolover.bestFit)
-            #print('best gene fitness = ', self.evolover.bestFit, self.evolover.bestIdx)
+            if self.evolover.bestFit > -1:
+                self.drawScheduleFrame()
+                self.drawGenome(self.evolover.GenePool[self.evolover.bestIdx], self.ScheduleViewPanel)
+            else :
+                wx.StaticText(self.ScheduleViewPanel, -1, "아직 찾은 시간표가 없습니다. : 현재 적합도 = " + str(self.evolover.bestFit),
+                                     pos=(100, 100),
+                                     size=(500,500))
+            print(self.evolover.bestFit)
             if self.evolover.Generation >= self.evolover.maxGeneration :
                 self.bRunning = False
 
 
     def OnCreateSchedule(self, e):
-        self.evolover = GeneticEvolver(self.CoreData, 1000, 100)
+        self.evolover = GeneticEvolver(self.CoreData, 500, 100)
         self.bRunning = True
 
+    def OnStopCreatingSchedule(self, e):
+        self.bRunning = False
+
+    def OnResumeCeatingSchedule(self, e):
+        self.evolover.Generation = 0
+        self.bRunning = True
 
     def drawGenome(self, gene, panel):
 
@@ -353,8 +369,13 @@ class TabSolve(wx.Panel):
             msg = msg + self.CoreData.ProfInfo[i].Name.GetValue() + " 교수님 | "
         self.Msg_ProfInfo.SetLabel(msg)
 
-        self.drawScheduleFrame()
-
+        if self.evolover.bestFit > -1:
+            self.drawScheduleFrame()
+            self.drawGenome(self.evolover.GenePool[self.evolover.bestIdx], self.ScheduleViewPanel)
+        else:
+            wx.StaticText(self.ScheduleViewPanel, -1, "아직 찾은 시간표가 없습니다. : 현재 적합도 = " + str(self.evolover.bestFit),
+                          pos=(100, 100),
+                          size=(500, 500))
 
         if e is not None:
             e.Skip() # for multiple event handlers
