@@ -102,25 +102,33 @@ class GeneticEvolver:
         self.GenePool[j].chromosome = t
 
 
-    def Select(self, a, b, max):
-        rVal = random.randrange(0, 10001) % 4
+    def Select(self, a, b, max, option=True):
+        if option == True :
+            first, second = a, b
+        else :
+            first, second = b, a
+        rVal = random.randrange(0, 10001) % 6
         if rVal == 0 :
-            return a%max
+            return first%max
         elif rVal == 1 :
-            return b%max
+            return second%max
         elif rVal == 2:
             return int((a+b)/2)
         else :
-            return (a+b)%max
+            return first%max
 
     def CrossOver(self, i, j):
         iGene = self.GenePool[i].chromosome
         jGene = self.GenePool[j].chromosome
+        if self.Fitness[i] > self.Fitness[j]:
+            option = True
+        else:
+            option = False
         child = [Chromosome(self.CoreData.nClassRooms) for i in range(len(self.CoreData.ClassUnits))]
         for idx in range(len(iGene)):
-            child[idx].weekday = self.Select(iGene[idx].weekday, jGene[idx].weekday, 5)
-            child[idx].room = self.Select(iGene[idx].room, jGene[idx].room, self.CoreData.nClassRooms)
-            child[idx].hour = self.Select(iGene[idx].hour, jGene[idx].hour, 9-self.CoreData.ClassUnits[idx][4])
+            child[idx].weekday = self.Select(iGene[idx].weekday, jGene[idx].weekday, 5, option )
+            child[idx].room = self.Select(iGene[idx].room, jGene[idx].room, self.CoreData.nClassRooms, option )
+            child[idx].hour = self.Select(iGene[idx].hour, jGene[idx].hour, 9-self.CoreData.ClassUnits[idx][4], option )
 
         if self.Fitness[i] > self.Fitness[j]: self.Mutate(j)
         else: self.Mutate(i)
@@ -154,6 +162,10 @@ class GeneticEvolver:
         fitness  = 0.0
         slots =  [-1] * 2 * 10 * data.nClassRooms * 5 # 10 hours in nClassRooms for 5 days
 
+        # profMaxMinDay
+        profMinDay = [5] * data.nProfessors
+        profMaxDay = [-1] * data.nProfessors
+
         # fitness check slots setting and overlapping test
         for i in range(len(data.ClassUnits)):  # for each chromosome
             day = gene.chromosome[i].weekday
@@ -163,6 +175,9 @@ class GeneticEvolver:
             credits = data.ClassUnits[i][4]
             profId = data.ClassUnits[i][0]
             grade = data.ClassUnits[i][5]
+
+            if profMinDay[profId] > day: profMinDay[profId] = day
+            if profMaxDay[profId] < day: profMaxDay[profId] = day
 
             for h in range(hour, hour + credits):
 
@@ -210,6 +225,25 @@ class GeneticEvolver:
                             fitness -= 10.0
                             #self.chromosomeModification(gene.chromosome[i])
 
+        if fitness < 0 : return fitness
+
+        # lunch time
+        for i in range(len(data.ClassUnits)):  # for each chromosome
+            hour = gene.chromosome[i].hour
+            credits = data.ClassUnits[i][4]
+            if 3 >= hour and 3 <= hour+credits-1:
+                fitness -= 10
+            elif 4 >= hour and 4 <= hour+credits-1 :
+                fitness -= 5
+            else :
+                fitness += 20
+
+
+
+        for i in range(data.nProfessors) :
+            gap = profMaxDay[i] - profMinDay[i]
+            fitness += gap*10
+
 
         # professor and grade check
         return fitness
@@ -240,9 +274,45 @@ class TabSolve(wx.Panel):
         self.ScheduleViewPanel.SetupScrolling()
         self.ScheduleViewPanel.SetBackgroundColour('#CCCCCC')
 
+
+
         self.evolover = GeneticEvolver(self.CoreData, 1000, 100)
 
         self.Bind(wx.EVT_IDLE, self.OnIdle)
+
+        self.selectedChromosome = -1
+
+
+    def getOnClick(self, chromosomeID):
+        def OnClick(e):
+            x, y = e.GetPosition()
+            print('mouse clicked at ', x, y, chromosomeID)
+            self.selectedChromosome = chromosomeID
+        return OnClick
+
+    def OnMouseUp(self, e):
+        if self.selectedChromosome == -1 : return
+        else :
+            vX = self.ScheduleViewPanel.GetViewStart()[0] * self.ScheduleViewPanel.GetScrollPixelsPerUnit()[0]
+            print(vX, self.ScheduleViewPanel.GetViewStart()[0], self.ScheduleViewPanel.GetScrollPixelsPerUnit()[0])
+
+            x, y = e.GetPosition()
+            x += vX
+            x -= SCHEDULE_ITEM_W
+            dayWidth = SCHEDULE_ITEM_W*self.CoreData.nClassRooms
+            day = int(x / dayWidth)
+            room = int(x / SCHEDULE_ITEM_W) % self.CoreData.nClassRooms
+            y -= SCHEDULE_ITEM_H*2
+            hour = int(y/ SCHEDULE_ITEM_H)
+            print("released day = ", day, room, hour)
+            self.evolover.GenePool[self.evolover.bestIdx].chromosome[self.selectedChromosome].weekday = day
+            self.evolover.GenePool[self.evolover.bestIdx].chromosome[self.selectedChromosome].room = room
+            self.evolover.GenePool[self.evolover.bestIdx].chromosome[self.selectedChromosome].hour = hour
+
+            self.drawScheduleFrame()
+            self.drawGenome(self.evolover.GenePool[self.evolover.bestIdx], self.ScheduleViewPanel)
+            self.selectedChromosome = -1
+
 
 
     def OnIdle(self, e):
@@ -261,7 +331,7 @@ class TabSolve(wx.Panel):
 
 
     def OnCreateSchedule(self, e):
-        self.evolover = GeneticEvolver(self.CoreData, 500, 100)
+        self.evolover = GeneticEvolver(self.CoreData, 500, 1000)
         self.bRunning = True
 
     def OnStopCreatingSchedule(self, e):
@@ -305,6 +375,9 @@ class TabSolve(wx.Panel):
             unit.SetTransparent(0.75)
             unit.Wrap(2)
 
+            unit.Bind(wx.EVT_LEFT_DOWN, self.getOnClick(i))
+
+
 
 
     def drawScheduleFrame(self):
@@ -312,6 +385,7 @@ class TabSolve(wx.Panel):
         self.ScheduleViewPanel = wx.lib.scrolledpanel.ScrolledPanel(self, -1, size=(1350, 650), pos=(0, 130),
                                                                     style=wx.SIMPLE_BORDER)
         self.ScheduleViewPanel.SetBackgroundColour('#CCCCCC')
+        self.ScheduleViewPanel.Bind(wx.EVT_LEFT_UP, self.OnMouseUp)
 
         weekDays = ['월', '화', '수', '목', '금']
         weekColors = ['#00FFFF', '#FFFF00', '#00FF00', '#FFAAFF', '#FFFFAA']
