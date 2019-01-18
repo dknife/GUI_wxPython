@@ -2,27 +2,163 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60915b30-e0a8-4bbb-9e74-008a3db51738" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/TUScheduler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/TabBasicInfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/TabIntro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/TabRoomInfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/TabSolve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/constant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/images/intro.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/test2.cud" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v0.9/test3.cud" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/TUScheduler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/TabBasicInfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/TabIntro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/TabRoomInfo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/TabSolve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/constant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/images/intro.JPG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/test2.cud" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TUScheduler_v1.0/test3.cud" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/2019Game2학기.cud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/TUScheduler.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/Test.cud" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/VCRUNTIME140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/images/intro.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/_bz2.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/_hashlib.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/_lzma.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/_socket.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/_ssl.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/email/architecture.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/pydoc_data/_pydoc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/pyexpat.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/select.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/unicodedata.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/VCRUNTIME140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_adv.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_aui.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_core.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_dataview.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_glcanvas.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_grid.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_html.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_html2.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_media.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_msw.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_propgrid.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_ribbon.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_richtext.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_stc.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_xml.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/_xrc.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/adv.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/aui.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/core.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/dataview.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/glcanvas.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/grid.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/html.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/html2.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/iconv.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_1_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_2_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_3_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/ShortcutEditor_4_thumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/agw/data/default_help_text.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/editor/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/myole4ax.idl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/myole4ax.tlb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/ArrowLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/ArrowRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/DirectionH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/DirectionV.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/PlayerFirst.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/PlayerLast.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/PlayerNext.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/PlayerPrev.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/Printer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/ReadMe.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/Save.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/ZoomIn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pdfviewer/bitmaps/ZoomOut.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/plot/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/plot/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/lib/pubsub/LICENSE_BSD_Simple.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/libcairo-2.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/libfontconfig-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/libfreetype-6.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/libpixman-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/libpng16-16.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/libxml2-2.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/af/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/an/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ar/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ca/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ca@valencia/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/cs/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/da/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/de/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/el/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/es/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/eu/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/fi/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/fr/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/gl_ES/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/hi/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/hu/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/id/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/it/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ja/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ko_KR/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/lt/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/lv/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ms/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/nb/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ne/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/nl/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/pl/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/pt/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/pt_BR/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ro/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ru/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/sk/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/sl/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/sq/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/sv/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/ta/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/tr/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/uk/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/vi/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/zh_CN/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/locale/zh_TW/LC_MESSAGES/wxstd.mo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/media.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/msw.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/propgrid.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/CHANGES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/Py.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/PyCrust.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/PyCrust_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/PyCrust_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/PySlices.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/PySlices_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/PySlices_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/py/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/python37.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/ribbon.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/richtext.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/siplib.cp37-win_amd64.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/stc.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/webkit.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxbase30u_net_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxbase30u_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxbase30u_xml_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_adv_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_aui_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_core_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_gl_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_html_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_media_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_propgrid_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_qa_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_ribbon_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_richtext_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_stc_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_webview_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/wxmsw30u_xrc_vc140_x64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/xml.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/xrc.pyi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/lib/wx/zlib1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TUScheduler_v1.0/build/exe.win-amd64-3.7/python37.dll" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +171,7 @@
     <session id="-580370034">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.142" value="1" />
           <entry key="project.open.time.41" value="1" />
@@ -100,7 +236,7 @@
         <entry file="file://$PROJECT_DIR$/TUScheduler_v1.0/setup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -242,7 +378,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -260,6 +396,11 @@
             <path>
               <item name="GUI_wxPython" type="b2602c69:ProjectViewProjectNode" />
               <item name="GUI_wxPython" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GUI_wxPython" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GUI_wxPython" type="462c0819:PsiDirectoryNode" />
+              <item name="TUScheduler_v1.0" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -295,7 +436,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.TUScheduler (1)">
+  <component name="RunManager" selected="Python.setup (1)">
     <configuration name="TUScheduler (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="GUI_wxPython" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -359,27 +500,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TUScheduler" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="GUI_wxPython" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\ymkan\AppData\Local\Programs\Python\Python36\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TUScheduler_v0.5" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TUScheduler_v0.5/TUScheduler.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -394,6 +514,27 @@
       <module name="" />
       <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setup (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="GUI_wxPython" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TUScheduler_v1.0" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TUScheduler_v1.0/setup.py" />
+      <option name="PARAMETERS" value="build" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -437,19 +578,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.TUScheduler" />
       <item itemvalue="Python.setup" />
       <item itemvalue="Python.TUScheduler (3)" />
       <item itemvalue="Python.TUScheduler (4)" />
       <item itemvalue="Python.TUScheduler (1)" />
+      <item itemvalue="Python.setup (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.setup (1)" />
         <item itemvalue="Python.TUScheduler (1)" />
         <item itemvalue="Python.TUScheduler (4)" />
         <item itemvalue="Python.TUScheduler (3)" />
         <item itemvalue="Python.setup" />
-        <item itemvalue="Python.TUScheduler" />
       </list>
     </recent_temporary>
   </component>
@@ -467,14 +608,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26279318" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28690228" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29934925" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -648,7 +789,7 @@
     <entry file="file://$PROJECT_DIR$/TUScheduler_v1.0/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
